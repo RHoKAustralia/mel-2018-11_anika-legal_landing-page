@@ -1,0 +1,30 @@
+@import "colors";
+
+nav {
+    background-color: $light;
+    .nav-link {
+        font-family: Oswald, sans-serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $primary!important;
+    }
+}
+.sub-header {
+    background-color: $secondary;
+    padding: 12px;
+    a {
+        color: $secondary;
+        background-color: white;
+        padding: 6px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        text-align: center;
+        margin-left: 6px;
+        svg {
+            position: relative;
+            top: -2px;
+        }
+    }
+}

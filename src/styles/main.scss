@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "colors";
+@import "fonts";
+
+
+html, body {
+    font-family: Cairo, sans-serif;
+    background-color: $light;
+}
+
+.btn {
+    &.btn-primary {
+        background-color: $light;
+        border: 0;
+        border-radius: 40px;
+        padding: 10px 30px;
+        font-family: Anton, sans-serif;
+        text-transform: uppercase;
+    }
+}
+
+input:not([type=file]), textarea {
+    background-color: #e8e8e8 !important;
+    border: 0 !important;
+    border-radius: 2px;
+
+    &:focus {
+        background-color: #e8e8e8 !important;
+    }
+}
+
+a {
+    color: $dark-blue;
+
+    &:hover {
+        color: darken($dark-blue, 10%);
+    }
+}
+
+.modal {
+    .modal-dialog {
+        max-width: 800px;
+    }
+}
