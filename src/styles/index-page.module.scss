@@ -1,0 +1,37 @@
+@import "main";
+
+.content {
+  background-color: $white;
+  box-shadow: 0 0 1rem rgba(0,0,0,.2);
+  padding: 5rem 2rem 2rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .content {
+    margin-top: -8rem;
+  }
+}
+
+.rule {
+    width: 4rem;
+    border-top: 0.4rem solid $green;
+    height: 0;
+    margin: 3rem auto;
+}
+
+.video {
+  margin-top: 5rem;
+}
+
+.stakeholders {
+  display: flex;
+  margin: 3rem 0;
+
+  h2 {
+    color: $white;
+  }
+}
+
+.stakeholder {
+  background-color: $dark;
+}

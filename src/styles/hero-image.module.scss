@@ -1,0 +1,36 @@
+@import "main";
+
+$hero-height: 50rem;
+
+.wrapper {
+  position: relative;
+  height: $hero-height;
+}
+
+.image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $hero-height;
+  h1, h2, h3, p, a {
+    color: $white;
+  }
+  a {
+    text-decoration: underline;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  h2, h3, p, a {
+    margin-bottom: 1.5rem;
+  }
+}

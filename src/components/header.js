@@ -3,48 +3,21 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import SOCIAL from '../constants/social'
 import "../styles/header.scss"
 
 const socialMedia = [
-  {
-    url: 'https://facebook.com/anikalegal',
-    icon: ['fab', 'facebook-f'],
-  },
-  {
-    url: 'https://twitter.com/anikalegal',
-    icon: ['fab', 'twitter'],
-  },
-  {
-    url: 'https://www.instagram.com/anikalegal',
-    icon: ['fab', 'instagram'],
-  },
-  {
-    url: 'https://www.linkedin.com/company/anika-legal/',
-    icon: ['fab', 'linkedin'],
-  },
+  { url: SOCIAL.FACEBOOK_URL, icon: ['fab', 'facebook-f'] },
+  { url: SOCIAL.TWITTER_URL, icon: ['fab', 'twitter'] },
+  { url: SOCIAL.INSTAGRAM_URL, icon: ['fab', 'instagram'] },
+  { url: SOCIAL.LINKEDIN_URL, icon: ['fab', 'linkedin'] },
 ]
-
 const navItems = [
-  {
-    path: '/',
-    title: 'home',
-  },
-  {
-    path: '/clients',
-    title: 'clients',
-  },
-  {
-    path: '/students',
-    title: 'students',
-  },
-  {
-    path: '/lawyers',
-    title: 'lawyers',
-  },
-  {
-    path: '/faq',
-    title: 'FAQ',
-  },
+  { path: '/', title: 'home' },
+  { path: '/clients', title: 'clients' },
+  { path: '/students', title: 'students' },
+  { path: '/lawyers', title: 'lawyers' },
+  { path: '/faq', title: 'FAQ' },
 ]
 
 

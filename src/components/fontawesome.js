@@ -1,4 +1,4 @@
-/* esline disable */
+/* eslint-disable */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faFacebookF,

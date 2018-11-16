@@ -1,0 +1,44 @@
+@import "colors";
+@import "fonts";
+
+a {
+  color: $dark-blue;
+  &:hover {
+    color: darken($dark-blue, 10%);
+  }
+}
+
+%title {
+  font-family: Oswald, sans-serif;
+  color: $text;
+  font-weight: 300;
+  text-transform: uppercase;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+h1 {
+  @extend %title;
+  font-size: 5rem;
+}
+
+h2 {
+  @extend %title;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: Montserrat, sans-serif;
+  color: $text;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+p {
+  font-family: Montserrat, sans-serif;
+  color: $text;
+  font-weight: 400;
+  font-size: 2rem;
+}
