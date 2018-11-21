@@ -13,13 +13,10 @@ jobs:
       # 1. Clone code from GitHub
       - checkout
 
-      # 2. Download and cache dependencies
-      #    We're assuming our dependencies are fully defined by "yarn.lock"
+      # 2. Download and cache dependencies (defined by "yarn.lock")
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
 
       # 3. Install dependencies
       - run: yarn install
@@ -29,6 +26,9 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+      # Run prettier linting (.prettierrc)
+      - run: yarn lint
 
       # Run any tests defined in package.json
       - run: yarn test

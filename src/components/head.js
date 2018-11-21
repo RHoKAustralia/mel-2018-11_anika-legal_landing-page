@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-
 const Head = ({ data }) => (
   <Helmet
     title={data.site.siteMetadata.title}
@@ -14,15 +13,14 @@ const Head = ({ data }) => (
   </Helmet>
 )
 
-
 export default props => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title,
-            description,
+            title
+            description
           }
         }
       }

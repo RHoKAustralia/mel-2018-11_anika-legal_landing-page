@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Header from './header'
 import Head from './head'
 import './fontawesome'
-import "../styles/main.scss"
+import '../styles/main.scss'
 
 const Layout = ({ children }) => (
   <div>

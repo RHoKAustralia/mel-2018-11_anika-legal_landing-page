@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SOCIAL from '../constants/social'
-import "../styles/header.scss"
+import '../styles/header.scss'
 
 const socialMedia = [
   { url: SOCIAL.FACEBOOK_URL, icon: ['fab', 'facebook-f'] },
@@ -19,7 +19,6 @@ const navItems = [
   { path: '/lawyers', title: 'lawyers' },
   { path: '/faq', title: 'FAQ' },
 ]
-
 
 // FIXME - mobile header doesn't work
 // FIXME - clean up styles / markup
@@ -36,11 +35,11 @@ const Header = ({ data }) => (
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbar">
           <ul className="navbar-nav ml-auto">
-            {navItems.map(({title, path}) => (
+            {navItems.map(({ title, path }) => (
               <Link key={path} to={path}>
                 <li className="nav-item">
                   <div className="nav-link">{title}</div>
@@ -54,8 +53,10 @@ const Header = ({ data }) => (
     <section className="sub-header">
       <div className="container">
         <div className="col-sm-12 text-right">
-          {socialMedia.map(({ url, icon}) => (
-            <a key={url} href={url}><FontAwesomeIcon icon={icon} /></a>
+          {socialMedia.map(({ url, icon }) => (
+            <a key={url} href={url}>
+              <FontAwesomeIcon icon={icon} />
+            </a>
           ))}
         </div>
       </div>
@@ -67,9 +68,16 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-          site { siteMetadata { title } }
-          logoImage: file(relativePath: { eq: "anika-logo.png" }) {
-            childImageSharp { fixed(width: 180, height: 70) { ...GatsbyImageSharpFixed_noBase64 }
+        site {
+          siteMetadata {
+            title
+          }
+        }
+        logoImage: file(relativePath: { eq: "anika-logo.png" }) {
+          childImageSharp {
+            fixed(width: 180, height: 70) {
+              ...GatsbyImageSharpFixed_noBase64
+            }
           }
         }
       }

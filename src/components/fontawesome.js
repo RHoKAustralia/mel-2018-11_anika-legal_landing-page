@@ -4,7 +4,7 @@ import {
   faFacebookF,
   faInstagram,
   faLinkedin,
-  faTwitter
+  faTwitter,
 } from '@fortawesome/fontawesome-free-brands'
 
 library.add(faFacebookF)

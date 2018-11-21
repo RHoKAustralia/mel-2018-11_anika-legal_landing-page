@@ -6,24 +6,24 @@ import Layout from '../components/layout'
 import HeroImage from '../components/hero-image'
 import AnikaIntroVideo from '../components/anika-intro-video'
 
-import styles from "../styles/index-page.module.scss"
+import styles from '../styles/index-page.module.scss'
 
 const IndexPage = ({ data }) => (
   <Layout>
     <HeroImage image={data.heroImage}>
       <div>
-        <h1>take back control. <strong>with anika.</strong></h1>
+        <h1>
+          take back control. <strong>with anika.</strong>
+        </h1>
         <p>
-          We're hard at work building Anika.
-          Check out the vision we're working towards,
-          and our demo.
+          We're hard at work building Anika. Check out the vision we're working
+          towards, and our demo.
         </p>
         <p>
-          Want to know more?
-          You can reach us on <a href={SOCIAL.FACEBOOK_URL}>Facebook here</a> –
-          we’d love to hear from you!
+          Want to know more? You can reach us on{' '}
+          <a href={SOCIAL.FACEBOOK_URL}>Facebook here</a> – we’d love to hear
+          from you!
         </p>
-
       </div>
     </HeroImage>
     <div className="container">
@@ -32,11 +32,10 @@ const IndexPage = ({ data }) => (
           <h2>anika – our vision</h2>
           <hr className={styles.rule} />
           <h3>
-            We want to put the power of legal advice in your hands,
-            when you need it most.
-            Here's how we're going to do it.
+            We want to put the power of legal advice in your hands, when you
+            need it most. Here's how we're going to do it.
           </h3>
-          <AnikaIntroVideo className={styles.video}/>
+          <AnikaIntroVideo className={styles.video} />
         </div>
       </div>
     </div>
@@ -60,13 +59,15 @@ const IndexPage = ({ data }) => (
   </Layout>
 )
 
-
 export default props => (
   <StaticQuery
     query={graphql`
       query {
-          heroImage: file(relativePath: { eq: "hero/index.jpg" }) {
-            childImageSharp { fluid(maxWidth: 1500) { ...GatsbyImageSharpFluid }
+        heroImage: file(relativePath: { eq: "hero/index.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1500) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
