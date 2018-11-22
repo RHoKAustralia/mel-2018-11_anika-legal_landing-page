@@ -1,37 +1,73 @@
-# Javascript Node CircleCI 2.0 configuration file
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+# CircleCI Build Script
+  # https://circleci.com/docs/2.0/configuration-reference/
+# This script
+#   - checks out the repository
+#   - installs node modules
+#   - runs the prettier linter
+#   - runs any unit tests (there are none)
+#   - builds the Gatsby site
+#
+# TODO
+#   - deploy master, staging, uat to S3
+#     can we do conditional deploys in CircleCI?
 version: 2
 jobs:
-  build:
-    # Use default CircleCI NodeJS Docker image for testing
+  setup:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:10.7
 
-    working_directory: ~/repo
-
     steps:
-      # 1. Clone code from GitHub
+      # Clone code from GitHub
       - checkout
 
-      # 2. Download and cache dependencies (defined by "yarn.lock")
+      # Download and cache dependencies (defined by "yarn.lock")
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "yarn.lock" }}
 
-      # 3. Install dependencies
+      # Install dependencies
       - run: yarn install
 
-      # 4. Save dependencies to cache
+      # Save dependencies to cache
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
-
+  lint:
+    working_directory: ~/repo
+    requires:
+      - setup
+    steps:
       # Run prettier linting (.prettierrc)
       - run: yarn lint
 
+  test:
+    working_directory: ~/repo
+    requires:
+      - setup
+    steps:
       # Run any tests defined in package.json
       - run: yarn test
 
+  build:
+    working_directory: ~/repo
+    requires:
+      - setup
+    steps:
       # Build Gastby site
       - run: yarn build
+
+  hold:
+    type: approval
+    requires:
+      - lint
+      - test
+      - build
+
+  deploy:
+    working_directory: ~/repo
+    requires:
+      - hold
+    steps:
+      - run: echo "Pretend this did a deployment"

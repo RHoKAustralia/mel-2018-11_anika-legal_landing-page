@@ -33,7 +33,7 @@
     "start": "npm run develop",
     "lint": "prettier --list-different \"src/**/*.js\"",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Dummy test ran successfully\""
+    "test": "echo \"Pretend that this ran some unit tests\""
   },
   "devDependencies": {
     "prettier": "^1.14.2"
