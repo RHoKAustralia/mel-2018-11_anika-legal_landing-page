@@ -36,24 +36,32 @@ jobs:
           key: v1-dependencies-{{ checksum "yarn.lock" }}
   lint:
     working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.7
     steps:
       # Run prettier linting (.prettierrc)
       - run: yarn lint
 
   test:
     working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.7
     steps:
       # Run any tests defined in package.json
       - run: yarn test
 
   build:
     working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.7
     steps:
       # Build Gastby site
       - run: yarn build
 
   deploy:
     working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.7
     steps:
       - run: echo "Pretend this did a deployment"
 
