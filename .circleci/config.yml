@@ -63,11 +63,14 @@ workflows:
     jobs:
       - setup
       - lint:
-          requires: setup
+          requires:
+            - setup
       - test:
-          requires: setup
+          requires:
+            - setup
       - build:
-          requires: setup
+          requires:
+            - setup
       - hold:
           type: approval
           requires:
