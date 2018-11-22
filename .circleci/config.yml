@@ -68,8 +68,6 @@ workflows:
           requires: setup
       - build:
           requires: setup
-      - lint:
-          requires: setup
       - hold:
           type: approval
           requires:
