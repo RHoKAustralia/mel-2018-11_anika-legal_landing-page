@@ -36,38 +36,46 @@ jobs:
           key: v1-dependencies-{{ checksum "yarn.lock" }}
   lint:
     working_directory: ~/repo
-    requires:
-      - setup
     steps:
       # Run prettier linting (.prettierrc)
       - run: yarn lint
 
   test:
     working_directory: ~/repo
-    requires:
-      - setup
     steps:
       # Run any tests defined in package.json
       - run: yarn test
 
   build:
     working_directory: ~/repo
-    requires:
-      - setup
     steps:
       # Build Gastby site
       - run: yarn build
 
-  hold:
-    type: approval
-    requires:
-      - lint
-      - test
-      - build
-
   deploy:
     working_directory: ~/repo
-    requires:
-      - hold
     steps:
       - run: echo "Pretend this did a deployment"
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - setup
+      - lint:
+          requires: setup
+      - test:
+          requires: setup
+      - build:
+          requires: setup
+      - lint:
+          requires: setup
+      - hold:
+          type: approval
+          requires:
+            - lint
+            - test
+            - build
+      - deploy:
+          requires:
+            - hold
